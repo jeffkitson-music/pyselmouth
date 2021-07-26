@@ -51,8 +51,9 @@ def clear():
 
 with gui("pyselmouth", "700x700", bg='#5d5d5d', font={'family':'Parseltongue','size':40}) as app:
     app.label("pyselmouth", bg='#1a472a', fg='white')
-    photo = ImageTk.PhotoImage(Image.open("snake.png"))
+    photo = ImageTk.PhotoImage(Image.open("assets/snake.png"))
     app.addImageData("pic", photo, fmt="PhotoImage")
     app.setPadding(15,15)
     app.addTextArea("t1")
-    app.buttons(["Shard", "Reform","Clear", "Quit"], [shard, reform, clear, app.stop])
+    app.buttons(["Shard", "Reform","Clear","Dice"], [shard, reform, clear,app.stop])
+    #app.buttons(["Dice","Help","Quit"], [app.stop,app.stop, app.stop])
