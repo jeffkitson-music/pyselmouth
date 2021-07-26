@@ -4,15 +4,18 @@ from pyseltongue import PlaintextToHexSecretSharer
 
 def shard():
     # 192 seems to be the hard limit on number of characters for now.
-    # Need to augment the standard primes list... 
+    # Suggested larger primes list to pyseltongue
     text = app.getTextArea("t1")
-    print(text)
     app.clearTextArea("t1")
-    shares = PlaintextToHexSecretSharer.split_secret(text, 2, 3)
-    s = ""
-    for share in shares:
-        s += share + "\n" + "\n"
-    app.setTextArea("t1",s)
+    try:
+        shares = PlaintextToHexSecretSharer.split_secret(text, 2, 3)
+        s = ""
+        for share in shares:
+            s += share + "\n" + "\n"
+        app.setTextArea("t1",s)
+    except Exception as e:
+        error = str(e)
+        app.warningBox("Error",error)
 
 def reform():
     text = app.getTextArea("t1")
