@@ -32,7 +32,6 @@ def clear():
 
 with gui("pyselmouth", "700x700", bg='#5d5d5d', font={'family':'Parseltongue','size':40}) as app:
     app.label("pyselmouth", bg='#1a472a', fg='white')
-    #app.addImage("simple", "apollo.png")
     photo = ImageTk.PhotoImage(Image.open("snake.png"))
     app.addImageData("pic", photo, fmt="PhotoImage")
     app.setPadding(15,15)
