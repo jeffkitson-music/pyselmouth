@@ -6,6 +6,9 @@
 ## Fonts
 - Parseltonge Font made by Sarah McFalls
 
+## Color scheme
+- [Quality Logo Products](https://www.qualitylogoproducts.com/blog/harry-potter-color-schemes/)
+
 ## Concepts and Cryptography
 - [Adi Shamir](https://en.wikipedia.org/wiki/Adi_Shamir) who created the [Shamir Secret Sharing](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing) scheme.
 - [Ryan Shea](https://github.com/shea256), et al. for the original [secret-sharing](https://github.com/shea256/secret-sharing) repo. 
