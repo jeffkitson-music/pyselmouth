@@ -11,6 +11,8 @@ Primary uses:
 - Lorem Ipsum
 - LOREM IPSUM
 
+Want to know more? There's a [great video](https://www.youtube.com/watch?v=iFY5SyY3IMQ) on YouTube!
+
 ## :books: Requirements
 - pyseltongue (pip install pyseltonge)
 - appJar (pip install appjar)
