@@ -20,10 +20,13 @@ def shard():
 def reform():
     text = app.getTextArea("t1")
     shards = text.split("\n")
-    print(shards)
     cleanshards = [x for x in shards if x] #list comprehension ftw
-    print(cleanshards)
-    recovered = PlaintextToHexSecretSharer.recover_secret(cleanshards)
+    try:
+        recovered = PlaintextToHexSecretSharer.recover_secret(cleanshards)
+    except Exception as e:
+        error = str(e)
+        app.warningBox("Error",error)
+        return
     app.clearTextArea("t1")
     app.setTextArea("t1",recovered)
 
