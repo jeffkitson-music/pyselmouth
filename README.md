@@ -14,6 +14,7 @@ Primary uses:
 ## :books: Requirements
 - pyseltongue (pip install pyseltonge)
 - appJar (pip install appjar)
+- Pillow (pip install Pillow)
 
 ## :eyes: Disclaimer
 This is a hobby project. While Shamir Secret Sharing is strong, this repo should not be used for any serious applications.
