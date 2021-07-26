@@ -56,4 +56,3 @@ with gui("pyselmouth", "700x700", bg='#5d5d5d', font={'family':'Parseltongue','s
     app.setPadding(15,15)
     app.addTextArea("t1")
     app.buttons(["Shard", "Reform","Clear","Dice"], [shard, reform, clear,app.stop])
-    #app.buttons(["Dice","Help","Quit"], [app.stop,app.stop, app.stop])
