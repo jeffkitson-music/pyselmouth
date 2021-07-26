@@ -1,6 +1,7 @@
 from appJar import gui
 from PIL import Image, ImageTk
 from pyseltongue import PlaintextToHexSecretSharer
+import jdice2
 
 
 def shard():
@@ -43,6 +44,12 @@ def reform():
     app.clearTextArea("t1")
     app.setTextArea("t1",recovered)
 
+def dice():
+    app.clearTextArea("t1")
+    n = app.integerBox("Words", "How many words?:", parent=None)
+    phrase = jdice2.getwords(n)
+    app.setTextArea("t1",phrase)
+
 def clear():
     app.clearTextArea("t1")
 ################################################################################################################
@@ -55,4 +62,4 @@ with gui("pyselmouth", "700x700", bg='#5d5d5d', font={'family':'Parseltongue','s
     app.addImageData("pic", photo, fmt="PhotoImage")
     app.setPadding(15,15)
     app.addTextArea("t1")
-    app.buttons(["Shard", "Reform","Clear","Dice"], [shard, reform, clear,app.stop])
+    app.buttons(["Shard", "Reform","Clear","Dice"], [shard, reform, clear,dice])
