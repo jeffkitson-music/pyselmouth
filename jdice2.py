@@ -3,10 +3,35 @@ import random
 
 
 def getwords(n):
+    word_list = rollthedice(n)
+    passphrase = cleaner(word_list)
+    return passphrase
+
+
+def getwordlist(n):
+    word_list = rollthedice(n)
+    return word_list
+
+
+def getword(dicecode):
+    word = bip39lookup(dicecode)
+    return word
+
+
+def getcode(word):
     wordbank = getwordbank()
-    random_numbers = rollthedice(n)
-    wordlist = matcher(random_numbers, wordbank)
-    return wordlist
+    for code, words in wordbank.items():
+        if word == words:
+            return code
+    return "Word not in list!"
+
+
+def getcodelist(listofwords):
+    code_list = []
+    for word in listofwords:
+        c = getcode(word)
+        code_list.append(c)
+    return code_list
 
 
 def getwordbank():
@@ -22,7 +47,7 @@ def getwordbank():
 
 
 def rollthedice(numberofwords):
-    number_list = []
+    word_list = []
     final = ""
     i = 0
     rolls = 0
@@ -43,23 +68,26 @@ def rollthedice(numberofwords):
         if int(final[1:]) > 4362 and final[0] == "t":  # If larger than t4362
             i -= 1  # Roll again!
         else:
-            number_list.append(final)
+            word = bip39lookup(final)
+            word_list.append(word)
         i += 1
         rolls = 0
         final = ""
-    return number_list
+    return word_list
 
 
-def matcher(number_list, wordbank):
-    wordlist = []
+def bip39lookup(dicecode):
+    wordbank = getwordbank()
+    try:
+        word = wordbank[dicecode]
+    except:
+        raise ValueError("Improper Dice Code. Must be h1111 through h6666 or t1111 through t4362.")
+    return word
+
+
+def cleaner(wordlist):
     passphrase = ""
-    for item in number_list:
-        wordlist.append(wordbank[item])
     for item in wordlist:
         passphrase = passphrase + " " + item
         passphrase = passphrase.strip()
     return passphrase
-
-
-#p = getwords(24)
-#print(p)
