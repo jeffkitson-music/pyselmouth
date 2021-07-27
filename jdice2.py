@@ -18,6 +18,17 @@ def getword(dicecode):
     return word
 
 
+def firstfour(partialword):
+    if len(partialword) < 4:
+        return "Partial word must be at least four characters."
+    wordbank = getwordbank()
+    for word in wordbank.values():
+        if partialword[0:4] == word[0:4]:
+            return word
+    return "Not found!"
+
+
+
 def getcode(word):
     wordbank = getwordbank()
     for code, words in wordbank.items():
