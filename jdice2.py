@@ -102,3 +102,14 @@ def cleaner(wordlist):
         passphrase = passphrase + " " + item
         passphrase = passphrase.strip()
     return passphrase
+
+
+def generate_password(passwordLength):
+    chars = "!#$%&'()*+,-./23456789:;<=>?@ABCDEFGHJKLMNOPRSTUVWXYZ[\]^_abcdefghijkmnopqrstuvwxyz{|}~"
+    password = ""
+    i = 0
+    while i < passwordLength:
+        x = random.randint(0, len(chars)-1)
+        password = password+chars[x]
+        i += 1
+    return password
