@@ -46,8 +46,12 @@ def reform():
 
 def dice():
     app.clearTextArea("t1")
-    n = app.integerBox("Words", "How many words?:", parent=None)
-    phrase = jdice2.getwords(n)
+    yn = app.yesNoBox("BIP39","Create a 24-word BIP39-compliant seed phrase?")
+    if yn:
+        phrase = jdice2.getbip39()
+    if not yn:
+        n = app.integerBox("Words", "How many words?:", parent=None)
+        phrase = jdice2.getwords(n)
     app.setTextArea("t1",phrase)
 
 def clear():
@@ -62,4 +66,4 @@ with gui("pyselmouth", "700x700", bg='#5d5d5d', font={'family':'Parseltongue','s
     app.addImageData("pic", photo, fmt="PhotoImage")
     app.setPadding(15,15)
     app.addTextArea("t1")
-    app.buttons(["Shard", "Reform","Clear","Dice"], [shard, reform, clear,dice])
+    app.buttons(["Shard", "Reveal","Clear","Dice"], [shard, reform, clear,dice])
